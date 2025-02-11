@@ -15,10 +15,10 @@ See sample console printing below:
 ![image](https://github.com/user-attachments/assets/dc502ad6-be00-4f2c-86f4-9f67c3673d6e)
 
 Some challenges for STM32 implementation:
-1. For STM32F411 Discovery board implementation, I can only have one image as the internal flash image is around 260 kB with the internal flash only around 512 kB. See below for the memory region allocation:
+1.  Limited Storage on STM32F411: Unlike the Raspberry Pi, which offers significantly more storage, the STM32F411 Discovery board has only 512 KB of internal flash. With an internal flash image size of approximately 260 KB for a 9400-density device, this allows for just one image. However, when targeting lower-density devices, it may be possible to fit two images within the available memory. See below for the memory region allocation:
  ![image](https://github.com/user-attachments/assets/55e7d559-24bb-4c6d-ae8b-6539bf7576d3)
 
-2. My raspberry pi operation for Verify operation involves reading all contents of the internal flash and putting in an array to be compared with the original bitstream array. Because of the small size of SRAM of STM32, this is not feasible thus a frame by frame comparison was done to save SRAM space. 
+2. Optimized Verification Process: To improve efficiency and reliability, the verify operation was restructured to perform frame-by-frame verification, ensuring a more optimized and scalable implementation.
 
 
 
